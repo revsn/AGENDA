@@ -1,0 +1,58 @@
+  <!--NAV-->
+  <header class="header bg-light fixed-top">
+    <nav class="navbar navbar-light">
+      <div class="container">
+        <a href="/" class="site-logo">
+          <img class="navbar-brand" src="/images/assist-purp.png" alt="image" width="100px">
+        </a>
+        <div class="d-none d-md-flex">
+          <ul class="nav mr-auto ">
+            <li class="nav-item active">
+              <a class="nav-link text-dar" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-primary" href="/users/login">Login</a>
+            </li>
+          </ul>
+        </div>
+  
+        <button class="navbar-toggler collapsed d-xs-inline-block d-md-none" type="button" data-toggle="collapse"
+          data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span> </span>
+          <span> </span>
+          <span> </span>
+        </button>
+  
+        <div class="collapse navbar-collapse d-xs-block d-md-none" id="navigation">
+          <ul class="d-xs-flex nav mr-auto justify-content-around d-md-none">
+            <li class="nav-item active">
+              <a class="nav-link text-dar" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-primary" href="/users/login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+<div class="d-flex justify-content-between align-items-center">
+     <div class="text-primary"> <%= req.params.username %> </div>
+    <a href="/users/logout" class="btn">Logout</a>
+</div>
+
+
+
+

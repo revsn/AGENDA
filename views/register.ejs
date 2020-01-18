@@ -1,0 +1,117 @@
+  <!--NAV-->
+  <header class="header bg-light fixed-top">
+    <nav class="navbar navbar-light">
+      <div class="container">
+        <a href="/" class="site-logo">
+          <img class="navbar-brand" src="/images/assist-purp.png" alt="image" width="100px">
+        </a>
+        <div class="d-none d-md-flex">
+          <ul class="nav mr-auto align-items-center">
+            <li class="nav-item active">
+              <a class="nav-link text-dar" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-primary" href="/users/login">Login</a>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler collapsed d-xs-inline-block d-md-none" type="button" data-toggle="collapse"
+          data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span> </span>
+          <span> </span>
+          <span> </span>
+        </button>
+        <div class="collapse navbar-collapse d-xs-block d-md-none" id="navigation">
+          <ul class="d-xs-flex nav mr-auto justify-content-around d-md-none align-items-center">
+            <li class="nav-item active">
+              <a class="nav-link text-dar" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-primary" href="/users/login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<div class="row mt-5">
+  <div class="col-sm col-md-9 m-auto">
+    <div class="card-body">
+      <% include ./partials/messages %>
+      <form action="/users/register" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="name"
+            id="name"
+            name="name"
+            class="form-control"
+            placeholder="Enter Name"
+            value="<%= typeof name != 'undefined' ? name : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="username"
+            id="username"
+            name="username"
+            class="form-control"
+            placeholder="Enter a Username"
+            value="<%= typeof username != 'undefined' ? username : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Email"
+            value="<%= typeof email != 'undefined' ? email : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Create Password"
+            value="<%= typeof password != 'undefined' ? password : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            class="form-control"
+            placeholder="Confirm Password"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Register
+        </button>
+      </form>
+      <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+    </div>
+  </div>
+</div>
