@@ -48,12 +48,16 @@
       </div>
     </nav>
   </header>
-<div class="d-flex justify-content-between align-items-center">
+
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center">
     <a href="/<%= user.username %>">
      <div class="text-primary"> <%= user.username %></div>
     </a>
+    <p>Member since <%= user.date.getFullYear() %></p>
+  </div>
+  <h1 class="mt-4">Welcome <%= user.name %></h1>
+  <p>Calendar Coming soon, tnaks for your patience...</p>
 </div>
 
-<h1 class="mt-4">Welcome <%= user.name %></h1>
-<p>Member since <%= user.date.getFullYear() %></p>
 
