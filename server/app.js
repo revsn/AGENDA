@@ -57,12 +57,11 @@ app.use(function(req, res, next) {
 // Routes
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
+
 // Profile Viewer
 app.get('/:user', (req, res) => {
   let profile = req.params.user;
   res.send(`searching for ${profile}`);
-  //testing purposes
-  console.log(client.db("test").collection("user"));
 });
 
 const PORT = process.env.PORT || 5000;

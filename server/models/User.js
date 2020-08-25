@@ -16,9 +16,21 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  date: {
+  register_date: {
     type: Date,
     default: Date.now
+  },
+  events: {
+    count: { type: Number, default: 1 },
+    event: {
+      type: Array, default: [{
+        title: 'Getting Started',
+        description: 'This is your first Event',
+        date: Date(Date.now()),
+        isPublic: true,
+        author: 'assist bot',
+      }]
+    }
   }
 });
 

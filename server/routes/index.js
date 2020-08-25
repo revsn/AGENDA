@@ -18,7 +18,15 @@ router.get('/profile', forwardAuthenticated, (req, res) => res.render('profile')
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) =>
   res.render('dashboard', {
-    user: req.user, isLoggedIn: req.isLogged
+    name: req.user.name,
+    username: req.user.username,
+    registered: req.user.register_date,
+    date: {
+      current_month: req.user.register_date.getMonth(),
+      year: req.user.register_date.getFullYear(),
+    },
+    events: req.user.events,
+    isLoggedIn: req.isLogged,
   })
 );
 

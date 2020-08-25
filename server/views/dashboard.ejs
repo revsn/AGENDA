@@ -5,59 +5,61 @@
         <a href="/" class="site-logo">
           <img class="navbar-brand" src="/images/assist-purp.png" alt="image" width="100px">
         </a>
+        <!-- Desktop Navigation -->
         <div class="d-none d-md-flex">
           <ul class="nav mr-auto align-items-center">
             <li class="nav-item active">
-              <a class="nav-link text-dar" href="/">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link text-dar" href="/<%= username %>">
+                <div class="text-primary">
+                  <i class="fas fa-user-astronaut"></i>
+                  <%= username %>
+                </div>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#pricing">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-outline-primary" href="/users/logout">Logout</a>
+              <a class="btn btn-primary" href="/users/logout">Logout</a>
             </li>
           </ul>
         </div>
-  
+
         <button class="navbar-toggler collapsed d-xs-inline-block d-md-none" type="button" data-toggle="collapse"
           data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-          <span> </span>
-          <span> </span>
-          <span> </span>
+          <div class="text-primary"><i class="fas fa-user-astronaut"></i> <%= username %></div>
         </button>
-  
+
+        <!-- Mobile Navigation -->
         <div class="collapse navbar-collapse d-xs-block d-md-none" id="navigation">
           <ul class="d-xs-flex nav mr-auto justify-content-around d-md-none align-items-center">
             <li class="nav-item active">
-              <a class="nav-link text-dar" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#pricing">Pricing</a>
+              <a class="nav-link text-dar" href="/<%= username %>">
+              </a>
             </li>
             <li class="nav-item">
               <a class="btn btn-outline-primary" href="/users/logout">Logout</a>
             </li>
           </ul>
         </div>
+
       </div>
     </nav>
   </header>
+<!--End of Nav-->
 
-<div class="container">
-  <div class="d-flex justify-content-between align-items-center">
-    <a href="/<%= user.username %>">
-     <div class="text-primary"> <%= user.username %></div>
-    </a>
-    <p>Member since <%= user.date.getFullYear() %></p>
+  <div class="justify-content-between ">
+    <div>
+      <h1>Hello <%= name %>, </h1>
+      <p>Member since <%- registered %></p>
+    </div>
+
+    <div>
+      <h4>You have <%- events.count %> upcoming event</h4>
+    </div>
+
+    <div class="events">
+      <p><%= events %></p>
+    </div>
+
+    <% if (events.count > 0) { %>
+      <% include ./partials/calendar.ejs %>
+    <% } %>
   </div>
-  <h1 class="mt-4">Welcome <%= user.name %></h1>
-  <p>Calendar Coming soon, tnaks for your patience...</p>
-</div>
-
-
