@@ -24,10 +24,13 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
     date: {
       current_month: req.user.register_date.getMonth(),
       year: req.user.register_date.getFullYear(),
+      string: req.user.register_date.toDateString(),
+      time: 'time',
     },
     events: req.user.events,
     isLoggedIn: req.isLogged,
   })
 );
+
 
 module.exports = router;
