@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Cool event description - ASSIST",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/revsn/AGENDA.git"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
@@ -25,6 +29,6 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^2.0.4"
   }
 }
