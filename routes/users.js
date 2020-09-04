@@ -5,6 +5,7 @@ const passport = require('passport');
 // Load User model
 const User = require('../models/User');
 const { forwardAuthenticated } = require('../config/auth');
+const Reserved = require('../models/Reserved');
 
 const app = express();
 app.use(express.static('public'));
@@ -23,6 +24,14 @@ router.post('/register', (req, res) => {
   if (!name || !email || !username || !password || !password2) {
     errors.push({ msg: 'Please enter all fields' });
   }
+
+  Reserved.forEach((val) => {
+    if (username == val)
+      errors.push({ msg: `Username "${username}" is prohibited` });
+  });
+
+  if (username.length < 3 || username.includes(" "))
+    errors.push({ msg: `"${username}" is now allowed` });
 
   if (password != password2) {
     errors.push({ msg: 'Passwords do not match' });

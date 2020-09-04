@@ -28,10 +28,21 @@ const UserSchema = new mongoose.Schema({
         description: 'This is your first Event',
         date: Date(Date.now()),
         isPublic: true,
-        author: 'assist bot',
+        author: 'welcome bot',
       }]
     }
-  }
+  },
+  friends: {
+    type: Array,
+    default: [{
+      username: "AGENDA",
+      follow: true,
+      following: true,
+    }]
+  },
+  followers: {type: Number, default: 1},
+  following: { type: Number, default: 1 },
+  
 });
 
 
