@@ -1,3 +1,10 @@
 .footer-links a{
     margin-left: 1cm;
 }
+
+.highlight {
+    /* text-decoration: underline; */
+    border-bottom: 4px groove #4450E6;
+    border-bottom-style: dotted;
+
+}

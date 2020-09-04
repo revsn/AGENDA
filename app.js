@@ -5,7 +5,6 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
 const db = require('./config/keys');
-const assert = require('assert');
 
 const app = express();
 
@@ -46,7 +45,6 @@ app.use(passport.session());
 // Connect flash
 app.use(flash());
 
-// Global variables
 app.use(function(req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
@@ -58,12 +56,6 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 
-// Profile Viewer
-app.get('/:user', (req, res) => {
-  let profile = req.params.user;
-  res.send(`searching for ${profile}`);
-});
 
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

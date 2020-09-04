@@ -12,9 +12,6 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 // Welcome Page
 router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 
-// profile
-router.get('/profile', forwardAuthenticated, (req, res) => res.render('profile'));
-
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) =>
   res.render('dashboard', {
@@ -31,6 +28,13 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
     isLoggedIn: req.isLogged,
   })
 );
+
+// View User
+router.get('/:user', (req, res) => {
+  let profile = req.params.user;
+  if (profile === "users") res.redirect('/users/login');
+  res.send(`searching for ${profile}`);
+});
 
 
 module.exports = router;
