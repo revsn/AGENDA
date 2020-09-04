@@ -1,4 +1,4 @@
-# Assist Planner
+# Agenda Event Planner
 
 ### Usage
 

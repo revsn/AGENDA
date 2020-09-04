@@ -16,9 +16,9 @@ require('./config/passport')(passport);
 const mongoURI = db.mongoURI;
 
 // Connect to MongoDB
-mongoose.connect(mongoURI,{ useNewUrlParser: true })
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+mongoose.connect(mongoURI,{ useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('/////// \n MongoDB Connection established... \n////////'))
+  .catch(err => console.log(`/////// \n ${err} \n//////////`));
 
 // EJS
 app.use(expressLayouts);
