@@ -1,7 +1,7 @@
 {
-  "name": "node_passport_login",
-  "version": "2.0.0",
-  "description": "Node.js authentication with Passport",
+  "name": "assist",
+  "version": "1.0.0",
+  "description": "Cool event description - ASSIST",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -20,6 +20,7 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.15.6",
     "mongoose": "^5.7.5",
+    "package.json": "^2.0.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },

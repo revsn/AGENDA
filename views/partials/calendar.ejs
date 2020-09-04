@@ -49,21 +49,27 @@
     <div class="day">31</div>
     <div class="day day--disabled">1</div>
     <div class="day day--disabled">2</div>
-    <section class="task task--warning">Projects</section>
-    <section class="task task--danger">Design Sprint</section>
-    <section class="task task--primary">Product Checkup 1
-      <div class="task__detail">
-        <h2>Product Checkup 1</h2>
-        <p>15-17th November</p>
-      </div>
-    </section>
-    <section class="task task--info">Product Checkup 2</section>
+
+    <% for(var i=0; i < events.count; i++) { %>
+
+      <section class="task task--warning">
+        <%= events.event[i].title %>
+        <% if(events.event[i].description) { %>
+          <div class="task__detail">
+            <%= events.event[i].description %>
+            <p><%= events.event[i].date %></p>
+          </div>
+        <% } %> 
+      </section>
+
+    <% } %>
+
   </div>
 </div>
 
 <script defer>
   const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
-  const mo = <% date.current_month %> ;
+  const mo = <%= date.current_month %> ;
   const month = document.getElementById('month');
 
   month.append(`${months[mo]}`);
