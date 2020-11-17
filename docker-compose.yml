@@ -8,8 +8,14 @@ services:
       - '80:3000'
     links:
       - mongo
+    # To edit files, add volume to compose file
+    volumes:
+      - ./:/usr/src/agenda
   mongo:
     container_name: mongo
     image: mongo
     ports:
       - '27017:27017'
+    volumes:
+      # keep data
+      - ./data/db:/data/db
