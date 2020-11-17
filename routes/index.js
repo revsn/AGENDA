@@ -29,10 +29,25 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
 );
 
 // View User
-router.get('/:user', (req, res) => {
-  let profile = req.params.user;
-  if (profile === "users") res.redirect('/users/login');
-  res.send(`searching for ${profile}`);
+router.get('/:user', ensureAuthenticated, (req, res) => {
+  if (req.params.user === "users") res.redirect('/users/login');
+  let profile = null;
+  
+  User.findOne({ username: req.params.user }).then(user => {
+    if (user) {
+      profile = {
+        name: user.name,
+        username: user.username,
+        followers: user.followers,
+        following: user.following,
+        events: user.events
+      }
+    }
+    res.render('profile', {
+      profile: profile,
+      isUser: req.params.user == req.user.username
+    })
+  })
 });
 
 

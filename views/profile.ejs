@@ -1,26 +1,10 @@
-  <!--NAV-->
-<header class="header bg-light fixed-top">
+<!--NAV-->
+<header class="header bg-light fixed-top" id="header">
   <nav class="navbar navbar-light">
     <div class="container">
       <a href="/" class="site-logo">
-        <img class="navbar-brand" src="/images/logo-text-purp.svg" alt="image" width="100px">
+        <img class="navbar-brand" src="/images/logo-text-purp.svg" alt="logo" width="100px">
       </a>
-      <div class="d-none d-md-flex">
-        <ul class="nav mr-auto ">
-          <li class="nav-item active">
-            <a class="nav-link text-dar" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-primary" href="/users/login">Login</a>
-          </li>
-        </ul>
-      </div>
 
       <button class="navbar-toggler collapsed d-xs-inline-block d-md-none" type="button" data-toggle="collapse"
         data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,28 +13,80 @@
         <span> </span>
       </button>
 
-      <div class="collapse navbar-collapse d-xs-block d-md-none" id="navigation">
-        <ul class="d-xs-flex nav mr-auto justify-content-around d-md-none">
-          <li class="nav-item active">
-            <a class="nav-link text-dar" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-primary" href="/users/login">Login</a>
-          </li>
-        </ul>
-      </div>
     </div>
   </nav>
 </header>
 
-<div class="d-flex justify-content-between align-items-center">
-     <div class="text-primary"> Someones Profile </div>
+<div class="content">
+  <div class="container">
+  <% if(isUser) { %>
+    <div class="row">
+      <div class="offset-md-9 col-md-3 col-sm-6">
+        <a href="/dashboard" class="btn btn-custom waves-effect waves-light" data-animation="fadein" data-plugin="custommodal" data-overlayspeed="200" data-overlaycolor="#36404a">
+          <i class="mdi mdi-plus"></i>Edit Profile
+        </a>
+      </div>
+      <!-- end col -->
+    </div>
+  <% } %> 
+
+  <% if(profile) { %>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center card-box">
+                <div class="member-card pt-2 pb-2">
+                    <!-- Avatar -->
+                    <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                    <div class="row">
+                        <h4 class="col-12"><%= profile.name %></h4>
+                        <p class="text-muted col-12">@<%= profile.username %></p>
+                        <div class="col-12 profile-bio">
+                          <a href="#" class="social"></a>
+                          <a href="#" class="social"></a>
+                          <a href="#" class="social"></a>
+                        </div>
+                    </div>
+                    <ul class="social-links list-inline">
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                    </ul>
+                    <button type="button" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Follow</button>
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="mt-3">
+                                    <h4><%= profile.following %> </h4>
+                                    <p class="mb-0 text-muted">Following</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="mt-3">
+                                    <h4><%= profile.followers %> </h4>
+                                    <p class="mb-0 text-muted">Followers</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="mt-3">
+                                    <h4><%= profile.events.count %> </h4>
+                                    <p class="mb-0 text-muted">Total Events</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-primary"></div>
+    <div class="text-primary"><%= profile.friends %> </div>
+
+  <% } else { %>
+    <h5>User does not exist</h5>
+  <% } %> 
+
+  </div>
+<!-- container -->
 </div>
-
-
