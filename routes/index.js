@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const User = require('../models/User');
+const date = new Date();
 
 const app = express();
 app.use(express.static('public'));
@@ -17,15 +18,13 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
   res.render('dashboard', {
     name: req.user.name,
     username: req.user.username,
-    registered: req.user.register_date,
-    date: {
-      current_month: req.user.register_date.getMonth(),
-      year: req.user.register_date.getFullYear(),
-      string: req.user.register_date.toDateString(),
-      time: 'time',
-    },
+    active: req.user.register_date.toDateString(),
     events: req.user.events,
     isLoggedIn: req.isLogged,
+    date: {
+      thisMonth: date.getMonth(),
+      thisYear: date.getFullYear(),
+    }
   })
 );
 

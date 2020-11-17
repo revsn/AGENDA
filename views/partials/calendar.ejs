@@ -1,4 +1,27 @@
 <link rel="stylesheet" href="css/calendar.css">
+<% for(var i=0; i < events.count; i++) { %>
+
+  <section class="task task--warning">
+    <%= events.event[i].title %>
+    <% if(events.event[i].description) { %>
+      <div class="task__detail">
+        <%= events.event[i].description %>
+        <p><%= events.event[i].date %></p>
+      </div>
+    <% } %> 
+  </section>
+
+
+
+
+
+
+
+
+
+<% } %> 
+
+<!-- End of For Loop -->
 
 <div class="calendar-container">
   <div class="calendar-header">
