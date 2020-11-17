@@ -48,7 +48,7 @@
   <div class="justify-content-between ">
     <div>
       <h1>Hello <%= name %>, </h1>
-      <p>Member since <%= registered %></p>
+      <p>Member since <%= active %></p>
     </div>
 
     <div>
@@ -56,21 +56,8 @@
     </div>
 
     <div class="events">
-
-    <% if (events.count > 0) { %>
-      <% for(var i=0; i < events.count; i++) { %>
-
-        <section class="task task--warning">
-          <%= events.event[i].title %>
-          <% if(events.event[i].description) { %>
-            <div class="task__detail">
-              <%= events.event[i].description %>
-              <p><%= events.event[i].date %></p>
-            </div>
-          <% } %> 
-        </section>
-
+      <% if (events.count > 0) { %>
+        <%- include('partials/calendar.ejs') %> 
       <% } %>
-    <% } %>
     </div>
   </div>
