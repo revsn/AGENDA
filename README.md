@@ -1,21 +1,25 @@
 # Agenda Event Planner
 
+### Requirements
+Docker
+Node
+
 ### Usage
+
+**run with NPM**
 
 ```sh
 $ npm install
 ```
 
 ```sh
-$ npm start
-# Or run with Nodemon
 $ npm run dev
 
-# deploys on http://localhost:5000
 ```
 
-- Node.js
-- Passport Auth
-- MongoDB
+**run with docker**
 
-- Open "config/keys.js" and add your MongoDB URI, local or Atlas
+```sh
+docker-compose up
+```
+
