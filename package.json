@@ -22,7 +22,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
-    "express-session": "^1.15.6",
+    "express-session": "^1.18.2",
     "mongoose": "^5.7.5",
     "package.json": "^2.0.1",
     "passport": "^0.4.0",
